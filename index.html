@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Crescimento Infantil - OMS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Crescimento Infantil</h1>
+      <p class="sub">Avaliação informativa com referência OMS para crianças e jovens até 15 anos.</p>
+
+      <form id="form" novalidate>
+        <label>Sexo</label>
+        <div class="segmented">
+          <button type="button" class="sex-btn active" data-sex="M">Menino</button>
+          <button type="button" class="sex-btn" data-sex="F">Menina</button>
+        </div>
+
+        <label for="birth">Data de nascimento</label>
+        <input id="birth" type="date" required />
+
+        <label for="weight">Peso (kg)</label>
+        <input id="weight" type="number" inputmode="decimal" min="0.5" max="250" step="0.01" placeholder="Ex.: 18,5" required />
+
+        <label for="height">Altura / comprimento (cm)</label>
+        <input id="height" type="number" inputmode="decimal" min="30" max="220" step="0.1" placeholder="Ex.: 108,4" required />
+
+        <button id="calc" class="primary" type="submit">Calcular</button>
+      </form>
+
+      <div id="status" class="status">Verificando referência de crescimento…</div>
+      <div id="ref-status" class="status ref-status"></div>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <h2>Resultado</h2>
+        <div class="grid">
+          <div><span>Idade</span><strong id="r-age">—</strong></div>
+          <div><span>IMC</span><strong id="r-bmi">—</strong></div>
+          <div><span>Escore-Z</span><strong id="r-z">—</strong></div>
+          <div><span>Percentil aprox.</span><strong id="r-pct">—</strong></div>
+        </div>
+        <div id="classification" class="classification">—</div>
+        <p id="reference" class="reference"></p>
+        <p id="reference-origin" class="reference"></p>
+      </section>
+
+      <p class="notice">Este resultado é informativo e não substitui avaliação de pediatra ou outro profissional de saúde. Em menores de 5 anos, a OMS também utiliza peso-para-comprimento/altura na avaliação nutricional.</p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
